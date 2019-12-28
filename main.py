@@ -77,7 +77,7 @@ TOOLTIPS=[
     ("$", "@revenue")
 ]
 
-p = figure(plot_height=600, plot_width=520, title="", toolbar_location=None, tooltips=TOOLTIPS, sizing_mode="scale_both")
+p = figure(plot_height=600, plot_width=590, title="", toolbar_location=None, tooltips=TOOLTIPS, sizing_mode="scale_both")
 p.circle(x="x", y="y", source=source, size=7, color="color", line_color=None, fill_alpha="alpha")
 
 #p.left[0].formatter.use_scientific = False
