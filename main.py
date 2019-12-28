@@ -10,7 +10,7 @@ from bokeh.models import ColumnDataSource, Div, Select, Slider, TextInput
 from bokeh.plotting import figure
 #from bokeh.sampledata.movies_data import movie_path
 
-conn = sql.connect('/Users/owner/.bokeh/data/movies.db')
+conn = sql.connect('movies.db')
 query = open('query.sql').read()
 movies = psql.read_sql(query, conn)
 
