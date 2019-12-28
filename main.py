@@ -8,9 +8,9 @@ from bokeh.io import curdoc
 from bokeh.layouts import column, layout
 from bokeh.models import ColumnDataSource, Div, Select, Slider, TextInput
 from bokeh.plotting import figure
-from bokeh.sampledata.movies_data import movie_path
+#from bokeh.sampledata.movies_data import movie_path
 
-conn = sql.connect(movie_path)
+conn = sql.connect('/Users/owner/.bokeh/data/movies.db')
 query = open('query.sql').read()
 movies = psql.read_sql(query, conn)
 
