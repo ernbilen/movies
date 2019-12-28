@@ -3,7 +3,7 @@ from os.path import dirname, join
 
 import numpy as np
 import pandas.io.sql as psql
-
+import pandas as pd
 from bokeh.io import curdoc
 from bokeh.layouts import column, layout
 from bokeh.models import ColumnDataSource, Div, Select, Slider, TextInput
@@ -31,6 +31,64 @@ movies.iloc[4347,24] = 39600000
 # Pulp Fiction
 movies.iloc[3637,24] = 108000000
 
+movies.iloc[1465,24]=134960000
+movies.iloc[3435,24]=96900000
+movies.iloc[4235,24]=57560000
+movies.iloc[3551,24]=330450000
+movies.iloc[3723,24]=75600000
+movies.iloc[3709,24]=63650000
+movies.iloc[4106,24]=128810000
+movies.iloc[1811,24]=290270000
+movies.iloc[1657,24]=461000000
+movies.iloc[2062,24]=310000000
+movies.iloc[801,24]=1830000
+movies.iloc[4765,24]=171500000
+movies.iloc[3911,24]=23000000
+movies.iloc[3866,24]=141500000
+movies.iloc[2690,24]=251300000
+movies.iloc[2859,24]=217500000
+movies.iloc[2892,24]=46900000
+movies.iloc[3104,24]=130000000
+movies.iloc[4050,24]=306000000
+movies.iloc[4832,24]=77000000
+movies.iloc[2744,24]=197000000
+movies.iloc[2132,24]=179000000
+movies.iloc[12303,24]=59000000
+movies.iloc[4392,24]=4800000
+movies.iloc[3658,24]=29000000
+movies.iloc[5011,24]=40000000
+movies.iloc[11535,24]=11000000
+movies.iloc[4792,24]=37000000
+movies.iloc[1528,24]=109000000
+movies.iloc[4630,24]=217000000
+movies.iloc[5076,24]=130000000
+movies.iloc[3116,24]=205000000
+movies.iloc[1426,24]=156000000
+movies.iloc[3280,24]=101000000
+movies.iloc[1609,24]=38200000
+movies.iloc[1588,24]=23600000
+movies.iloc[1676,24]=49000000
+movies.iloc[1963,24]=6700000
+movies.iloc[2372,24]=138500000
+movies.iloc[1254,24]=61700000
+movies.iloc[1970,24]=52700000
+movies.iloc[2842,24]=184200000
+movies.iloc[1553,24]=70600000
+movies.iloc[2643,24]=172800000
+movies.iloc[1839,24]=54700000
+movies.iloc[2063,24]=21100000
+movies.iloc[1341,24]=41300000
+movies.iloc[1721,24]=37800000
+movies.iloc[2473,24]=44000000
+movies.iloc[1748,24]=106000000
+movies.iloc[1286,24]=51700000
+movies.iloc[2078,24]=108000000
+movies.iloc[3996,24]=78600000
+movies.iloc[2714,24]=106500000
+movies.iloc[1873,24]=59000000
+movies.iloc[2250,24]=87000000
+movies.iloc[4793,24]=100000000
+
 movies["color"] = np.where(movies["Oscars"] > 0, "orange", "grey")
 movies["alpha"] = np.where(movies["Oscars"] > 0, 0.9, 0.25)
 movies.fillna(0, inplace=True)  # just replace missing values with zero
@@ -56,15 +114,15 @@ axis_map = {
 desc = Div(text=open("description.html").read(), sizing_mode="stretch_width")
 
 # Create Input controls
-reviews = Slider(title="Minimum number of reviews", value=80, start=10, end=300, step=10)
+reviews = Slider(title="Minimum number of reviews", value=70, start=10, end=300, step=10)
 min_year = Slider(title="Year released", start=1940, end=2014, value=1970, step=1)
 max_year = Slider(title="End Year released", start=1940, end=2014, value=2014, step=1)
 oscars = Slider(title="Minimum number of Oscar wins", start=0, end=4, value=0, step=1)
 boxoffice = Slider(title="Dollars at Box Office (millions)", start=0, end=800, value=0, step=1)
 genre = Select(title="Genre", value="All",
                options=open('genres.txt').read().split())
-director = TextInput(title="Director name contains")
-cast = TextInput(title="Cast name contains")
+director = TextInput(title="Director name contains (E.g. Miyazaki)")
+cast = TextInput(title="Cast name contains (E.g. Harrison Ford)")
 x_axis = Select(title="X Axis", options=sorted(axis_map.keys()), value="Tomatometer")
 y_axis = Select(title="Y Axis", options=sorted(axis_map.keys()), value="IMDb Rating")
 
