@@ -88,6 +88,8 @@ movies.iloc[2714,24]=106500000
 movies.iloc[1873,24]=59000000
 movies.iloc[2250,24]=87000000
 movies.iloc[4793,24]=100000000
+movies.iloc[1723,24]=83400000
+movies.iloc[3903,24]=222500000
 
 movies["color"] = np.where(movies["Oscars"] > 0, "orange", "grey")
 movies["alpha"] = np.where(movies["Oscars"] > 0, 0.9, 0.25)
